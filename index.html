@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About, Projects & Skills Section</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* General */
+body {
+    background-color: #1c1c1c;
+    color: #f0f0f0;
+    font-family: 'Poppins', sans-serif;
+}
+
+h1, h2, h3, h4 {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+/* About Section */
+#about {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #1c1c1c; /* Dark background */
+    background-image: url("icons/background.png"); /* Add your background image */
+    background-size: cover; /* Cover the entire section */
+    background-position: center; /* Center the image */
+    color: #ffffff; /* Text color */
+    position: relative; /* Add this for the overlay */
+}
+
+/* Overlay Styles */
+#about::before {
+    content: ''; /* Empty content for overlay */
+    position: absolute; /* Position it absolutely */
+    top: 0; /* Start at the top */
+    left: 0; /* Start at the left */
+    right: 0; /* Extend to the right */
+    bottom: 0; /* Extend to the bottom */
+    background-color: rgba(0, 0, 0, 0.6); /* Dark overlay with transparency */
+    z-index: 1; /* Place it above the background but below the content */
+}
+
+#about h1 {
+    font-size: 3em;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 50px;
+    position: relative; /* Ensure the heading is above the overlay */
+    z-index: 2; /* Ensure content is above the overlay */
+}
+
+.text-content {
+    position: relative; /* Ensure text content is above the overlay */
+    z-index: 2; /* Ensure content is above the overlay */
+}
+
+.image-container {
+    position: relative; /* Ensure the image container is positioned relative */
+    z-index: 2; /* Ensure the real photo is above the overlay */
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.image-container img {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    border: none; /* No border for sleek look */
+    object-fit: cover;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-container img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7); /* Enhanced hover effect */
+}
+
+.text-content {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.2em;
+    line-height: 1.8em;
+    color: #dcdcdc;
+}
+
+/* Projects Section */
+#projects {
+    padding: 50px 20px;
+    margin-bottom: 0; /* Remove any bottom margin */
+    background-color: #222; /* Dark background color */
+    background-image: url("icons/project_bg.png"); /* Add your background image */
+    background-size: contain; /* Cover the entire section */
+    /* background-repeat: repeat; /* Prevents the image from repeating */
+    background-position: center; /* Center the image */
+    position: relative; /* Add this for the overlay */
+    text-align: center;
+}
+
+/* Overlay Styles */
+#projects::before {
+    content: ''; /* Empty content for overlay */
+    position: absolute; /* Position it absolutely */
+    top: 0; /* Start at the top */
+    left: 0; /* Extend to the left */
+    right: 0; /* Extend to the right */
+    bottom: 0; /* Extend to the bottom */
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay with transparency */
+    z-index: 1; /* Place it above the background but below the content */
+}
+
+#projects h1 {
+    font-size: 3em;
+    font-weight: bold;
+    color: #ffffff; /* Text color */
+    position: relative; /* Ensure the heading is above the overlay */
+    z-index: 2; /* Ensure content is above the overlay */
+}
+
+/* Card styles */
+.card {
+    background-color: rgba(43, 43, 43, 0.9); /* Slightly transparent to see the background */
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* Ensure the card is above the overlay */
+    z-index: 2; /* Ensure the card is above the overlay */
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+}
+
+.card-title {
+    color: #00ff7f; /* Change title color for visibility */
+    font-weight: bold; /* Make title bold */
+}
+
+.card-text {
+    color: #dcdcdc; /* Text color */
+}
+
+/* Card image styles */
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+    z-index: 2; /* Ensure image is above overlay */
+}
+
+/* Skills Section */
+#skills {
+    text-align: center;
+    margin-top: 0; /* Remove any top margin */
+    padding: 50px 20px;
+    background-color: #1c1c1c; /* Dark background */
+    background-image: url("icons/skills_background.jpg"); /* Add your background image */
+    background-size: cover; /* Cover the entire section */
+    background-repeat: no-repeat; /* No repetition */
+    background-position: center; /* Center the image */
+    position: relative; /* Allows for overlay */
+    text-align: center;
+}
+
+/* Dark overlay for the background */
+#skills::before {
+    content: ''; /* Empty content for overlay */
+    position: absolute; /* Position it absolutely */
+    top: 0; /* Start at the top */
+    left: 0; /* Start at the left */
+    right: 0; /* Extend to the right */
+    bottom: 0; /* Extend to the bottom */
+    background-color: rgba(0, 0, 0, 0.6); /* Dark overlay with 50% transparency */
+    z-index: 1; /* Place it above the background but below the content */
+}
+
+#skills h1 {
+    font-size: 3em;
+    font-weight: bold;
+    color: #ffffff; /* Text color */
+    position: relative; /* Ensure the heading is above the overlay */
+    z-index: 2; /* Ensure content is above the overlay */
+}
+
+/* Skill cards */
+.skill-card {
+    background-color: #2b2b2b;
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* Ensure skill cards are above the overlay */
+    z-index: 2;
+}
+
+.skill-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+}
+
+.skill-card img {
+    height: 100px;
+    margin-bottom: 20px;
+    object-fit: contain;
+}
+
+
+/* Contact Section */
+#contact {
+    text-align: center;
+    background-color: #1c1c1c !important;
+    padding: 100px 20px;
+}
+
+#contact h1 {
+    font-size: 3em;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 50px;
+}
+
+#contact a {
+    text-decoration: none;
+    color: #00ff7f;
+    transition: color 0.3s ease;
+}
+
+#contact a:hover {
+    color: #00ffb7; /* Lighter green on hover */
+}
+
+#contact p {
+    font-size: 1.2em;
+    color: #dcdcdc;
+}
+
+/* Buttons */
+.btn-professional {
+    background-color: #00ff7f;
+    border: none;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-professional:hover {
+    transform: scale(1.1);
+    box-shadow: 0 15px 25px rgba(0, 255, 127, 0.5);
+}
+
+.btn-professional img {
+    max-width: 50%;
+}
+
+/* Navigation Bar */
+#navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #1c1c1c;
+    padding: 15px 0;
+}
+
+/* Add some left margin to "My Portfolio" */
+#navbar .navbar-brand {
+    font-size: 1.8rem;  /* Adjust size of the brand text */
+    margin-left: 15px;  /* Add left margin to create space */
+    font-weight: bold;
+    color: #fff;
+    color: #00ff7f;
+}
+
+/* Styling the Navbar */
+#navbar {
+    background-color: #1c1c1c; /* Change the navbar to grey */
+    padding: 15px;
+}
+
+/* Optional: Change navbar link colors */
+#navbar .nav-link {
+    color: white; /* Make sure the links are white for contrast */
+}
+
+/* Optional: Hover effect for links */
+#navbar .nav-link:hover {
+    color: #cccccc; /* Light grey color on hover */
+}
+
+#navbar .nav-link {
+    color: #ffffff;
+    padding: 10px 20px;
+    font-size: 1.1em;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+#navbar .nav-link:hover {
+    background-color: #2b2b2b;
+    border-radius: 5px;
+}
+
+/* Footer */
+footer {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #1c1c1c;
+    color: #dcdcdc;
+}
+
+footer a {
+    color: #00ff7f;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #00ffb7;
+}
+
+/* General Media Queries */
+@media (max-width: 768px) {
+    #about, #projects, #skills, #contact {
+        padding: 50px 10px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .image-container img {
+        width: 180px;
+        height: 180px;
+    }
+
+    .skill-card img {
+        height: 80px;
+    }
+
+    .btn-professional {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">My Portfolio</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#projects">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#skills">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- About Section -->
+    <section id="about">
+        <h1>About</h1>
+        <div class="image-container">
+            <img src="images/about/me.jpeg" alt="Profile Picture">
+        </div>
+        <div class="text-content">
+     <p>Hi, I’m <strong>Daksh Jain</strong>, a passionate data enthusiast pursuing my <strong>BTech</strong>.
+        Think of me as a “<strong>data detective</strong>,” always hunting for hidden insights—even if it feels like deciphering a secret code!
+        I believe in the power of data and technology to drive impactful decisions and solve real-world problems.</p>
+
+<p>By day, I’m immersed in <strong>data science and AI projects</strong>, analyzing datasets and using machine learning to derive <strong>actionable insights</strong>. 
+   By night, I’m often exploring new tech trends or tackling programming challenges.</p>
+
+<p>Check out my work on <strong>GitHub</strong> or connect with me on <strong>LinkedIn</strong>. I’m excited about the <strong>endless possibilities</strong> in tech and eager to make a lasting impact!</p>
+
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-5">
+        <div class="container">
+            <h1 class="text-center mb-5">Projects</h1>
+            <div class="row">
+
+                <!-- Project 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="images\projects\nova.jpg" class="card-img-top" alt="Project 1">
+                        <div class="card-body">
+                            <h5 class="card-title" style="color: #ffffff;"><strong><u>NOVA</u></strong></h5>
+                            <p class="card-text">Nova is a Python virtual assistant that efficiently manages daily tasks through voice commands,
+                                 making everyday life more convenient and organized</p>
+                            <a href="https://github.com/itsdakshjain/Virtual-Assistant/blob/main/README.md" class="btn btn-primary" target="_blank">Project Detail</a>  
+                            <a href="https://github.com/itsdakshjain/Virtual-Assistant" class="btn btn-secondary" target="_blank">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="images\projects\comming_soon.png" class="card-img-top" alt="Project 2">
+                        <div class="card-body">
+                            <h5 class="card-title" style="color: #ffffff;"><strong><u>Upcoming Projects</u></strong></h5>
+                            <p class="card-text">Stay tuned for exciting new projects as I continue to explore and innovate in the field of data science and technology!</p>
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                            <a href="#" class="btn btn-secondary">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="images/projects/3.jpg" class="card-img-top" alt="Project 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Project 3</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel sapien malesuada.</p>
+                            <a href="#" class="btn btn-primary">Project Detail</a>
+                            <a href="#" class="btn btn-secondary">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+-->
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-5">
+        <div class="container">
+            <h1 class="text-center mb-5">Skills</h1>
+            <div class="row">
+
+                <!-- Skill 1 -->
+                <div class="col-md-3 mb-4">
+                    <div class="card skill-card">
+                        <img src="images/skills/1.png" class="card-img-top mx-auto" alt="Skill 1">
+                        <div class="card-body text-center">
+                            <h5 class="card-title" style="color: #ffffff;"><strong><u>Python</u></strong></h5>
+                            <p class="card-text">I have a solid understanding of Python programming, focusing on data analysis, visualization, and machine learning.
+                                 I'm always eager to tackle new challenges using Python.</p>
+                            <a href="https://www.hackerrank.com/certificates/28cd778b306b" 
+                            class="btn btn-primary" target="_blank">View Certificate</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill 2 -->
+                <div class="col-md-3 mb-4">
+                    <div class="card skill-card">
+                        <img src="images/skills/2.jpeg" class="card-img-top mx-auto" alt="Skill 2">
+                        <div class="card-body text-center">
+                            <h5 class="card-title" style="color: #ffffff;"><strong><u>Generative AI Productivity</u></strong></h5>
+                            <p class="card-text">Utilizing Microsoft-powered Generative AI for Data-Driven Productivity. (or)
+                                Enhancing Data-Driven Productivity with Generative AI by Microsoft.
+                            </p>
+                            <a href="https://www.linkedin.com/learning/certificates/3b1d2f3b8f12796ac9755b506317f1b9741404ab9e6a6424b85def0415ae6f6b?trk=share_certificate"
+   class="btn btn-primary" target="_blank">View Certificate</a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill 3 -->
+                <div class="col-md-3 mb-4">
+                    <div class="card skill-card">
+                        <img src="images/skills/3.png" class="card-img-top mx-auto" alt="Skill 3">
+                        <div class="card-body text-center">
+                            <h5 class="card-title" style="color: #ffffff;"><strong><u>SQL</u></strong></h5>
+                            <p class="card-text">Proficient in SQL for data manipulation and analysis, ensuring efficient data retrieval.</p>
+                            <a href="https://www.hackerrank.com/certificates/16279a08b04d" 
+                            class="btn btn-primary" target="_blank">View Certificate</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill 4 -->
+                <div class="col-md-3 mb-4">
+                    <div class="card skill-card">
+                        <img src="images\skills\dsa-new.webp" class="card-img-top mx-auto" alt="Skill 4">
+                        <div class="card-body text-center">
+                            <h5 class="card-title" style="color: #ffffff;"><strong><u>D S A</u></strong></h5>
+                            <p class="card-text">Solving complex problems using various data structures and algorithms.</p>
+                            <a href="https://www.geeksforgeeks.org/courses/Data-Structures-With-Python" class="btn btn-primary"  target="_blank">Link to course</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Me Section -->
+<section id="contact" class="py-5 bg-dark text-white">
+    <div class="container">
+        <h1 class="text-center mb-5">Contact Me</h1>
+        <div class="row justify-content-center mb-4">
+            <div class="col-md-4 text-center">
+                <i class="fas fa-envelope fa-2x mb-2"></i>
+                <p>Email: <a href="mailto:youremail@example.com" class="text-white">dakshjain1265@gmail.com</a></p>
+            </div>
+            <div class="col-md-4 text-center">
+                <i class="fas fa-phone fa-2x mb-2"></i>
+                <p>Phone: <a href="tel:+1234567890" class="text-white">8287351920</a></p>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-1 col-2 text-center">
+                <a href="https://www.linkedin.com/in/daksh-jain-6b31772b9" class="btn btn-pink rounded-circle" data-toggle="tooltip" title="LinkedIn" target="_blank">
+                    <img src="icons/linkedin.png" alt="LinkedIn" class="img-fluid" style="max-width: 50px; height: 50px;">
+                </a>
+            </div>
+            <div class="col-md-1 col-2 text-center">
+                <a href="https://github.com/itsdakshjain" class="btn btn-pink rounded-circle" data-toggle="tooltip" title="GitHub" target="_blank">
+                    <img src="GitHub-logo-.webp" alt="GitHub" class="img-fluid" style="max-width: 50px; height: 50px;">
+                </a>
+            </div>
+            <!--
+                <div class="col-md-1 col-2 text-center">
+                    <a href="#" class="btn btn-pink rounded-circle" data-toggle="tooltip" title="Medium">
+                        <img src="icons/medium.png" alt="Medium" class="img-fluid">
+                    </a>
+                </div>
+                <div class="col-md-1 col-2 text-center">
+                    <a href="#" class="btn btn-pink rounded-circle" data-toggle="tooltip" title="Twitter">
+                        <img src="icons/twitter.png" alt="Twitter" class="img-fluid">
+                    </a>
+                </div>
+            <div class="col-md-1 col-2 text-center">
+                <a href="#" class="btn btn-pink rounded-circle" data-toggle="tooltip" title="YouTube">
+                    <img src="icons/youtube.png" alt="YouTube" class="img-fluid">
+                </a>
+            </div> -->
+        </div>
+    </div>
+</section>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
