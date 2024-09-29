@@ -261,37 +261,21 @@ h1, h2, h3, h4 {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background-color: #1c1c1c;
-    padding: 15px 0;
+    background-color: #1c1c1c; /* Change the navbar to grey */
+    padding: 15px; /* Padding for the navbar */
 }
 
 /* Add some left margin to "My Portfolio" */
 #navbar .navbar-brand {
-    font-size: 1.8rem;  /* Adjust size of the brand text */
-    margin-left: 15px;  /* Add left margin to create space */
+    font-size: 1.8rem; /* Adjust size of the brand text */
+    margin-left: 15px; /* Add left margin to create space */
     font-weight: bold;
-    color: #fff;
-    color: #00ff7f;
-}
-
-/* Styling the Navbar */
-#navbar {
-    background-color: #1c1c1c; /* Change the navbar to grey */
-    padding: 15px;
+    color: #00ff7f; /* Brand color */
 }
 
 /* Optional: Change navbar link colors */
 #navbar .nav-link {
     color: white; /* Make sure the links are white for contrast */
-}
-
-/* Optional: Hover effect for links */
-#navbar .nav-link:hover {
-    color: #cccccc; /* Light grey color on hover */
-}
-
-#navbar .nav-link {
-    color: #ffffff;
     padding: 10px 20px;
     font-size: 1.1em;
     text-decoration: none;
@@ -299,9 +283,21 @@ h1, h2, h3, h4 {
 }
 
 #navbar .nav-link:hover {
-    background-color: #2b2b2b;
+    background-color: #2b2b2b; /* Background on hover */
     border-radius: 5px;
 }
+
+/* Ensure sections have top padding and negative margin */
+section {
+    padding-top: 30px; /* Adjust this value to match the navbar height */
+    margin-top: -30px; /* Negative margin to pull the section up */
+}
+
+/* Optional: HTML scroll padding to make scrolling smoother */
+html {
+    scroll-padding-top: 30px; /* Adjust based on navbar height */
+}
+
 
 /* Footer */
 footer {
